@@ -3,7 +3,7 @@ Acceleration_rate_1,1.0
 Acceleration_rate_2,0.6
 Switch_speed,40
 Braking_rate,1.2
-Maximum_speed,80
+Maximum_speed,120
 Static_friction,14
 Rolling_resistance,0.264
 Air_resistance,0.00191
