@@ -3,7 +3,7 @@ Acceleration_rate_1,1.0
 Acceleration_rate_2,0.6
 Switch_speed,40
 Braking_rate,1.2
-Maximum_speed,120
+Maximum_speed,10
 Static_friction,14
 Rolling_resistance,0.264
 Air_resistance,0.00191
@@ -15,3 +15,4 @@ Starting_resistance,49
 Inertia_mass_m,0.1
 Inertia_mass_t,0.05
 Motor_nos,8
+Regeneration_efficiency,0.5
