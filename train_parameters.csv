@@ -15,3 +15,4 @@ Starting_resistance,49
 Inertia_mass_m,0.1
 Inertia_mass_t,0.05
 Motor_nos,8
+Regeneration_efficiency,0.5
