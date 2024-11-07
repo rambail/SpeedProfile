@@ -2,5 +2,4 @@ matplotlib
 numpy
 ipywidgets
 pandas
-os
 openpyxl
