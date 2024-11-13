@@ -17,3 +17,4 @@ Inertia_mass_t,0.05
 Motor_nos,8
 Regeneration_efficiency,0.5
 Coasting,1
+Stop_duration,30
