@@ -2,16 +2,27 @@
 # coding: utf-8
 
 class MotorRatingCalculator:
-    def __init__(self, power_calculator, avg_speed_calculator):
-        self.power_calculator = power_calculator
-        self.avg_speed_calculator = avg_speed_calculator
+    def __init__(self, train_params):
+        self.train_params = train_params
+        self.train_mass = float(self.train_params['Train_mass'])
+        self.starting_resistance = float(self.train_params['Starting_resistance'])
+        self.mc_mass = float(self.train_params['Mc_mass'])
+        self.tc_mass = float(self.train_params['Tc_mass'])
+        self.inertia_mass_m = float(self.train_params['Inertia_mass_m'])
+        self.inertia_mass_t = float(self.train_params['Inertia_mass_t'])
+        self.acceleration = float(self.train_params['Acceleration'])
+        self.switch_speed = float(self.train_params['Switch_speed']) * 1000 / 3600
+        self.motor_nos = float(self.train_params['Motor_nos'])
 
     def display_motor_rating(self):
-        energy_consumed_kwh = self.power_calculator.calculate_energy_consumed()
-        avg_speeds = self.avg_speed_calculator.get_section_average_speeds()
+        te_start = self.train_mass * self.starting_resistance / 1000 # Starting Effort in kN
+        te_rolling = (self.train_mass + 
+                      self.mc_mass * self.inertia_mass_m * 2 + 
+                     self.tc_mass * self.inertia_mass_t) * self.acceleration # Moving Effort
+        te_total = te_start + te_rolling # Total Effort
+        te_motor = te_total / self.motor_nos # Effort per Motor
+        motor_rating = te_motor * self.switch_speed  # Motor Rating
+        return motor_rating
 
-        print(f"Total energy consumed during the run: {energy_consumed_kwh:.3f} kWh")
-        print("Average speeds for each section (km/h):")
-        for i, speed in enumerate(avg_speeds, start=1):
-            print(f"Section {i}: {speed:.2f} km/h")
+   
 

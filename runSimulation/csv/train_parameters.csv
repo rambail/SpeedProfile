@@ -9,8 +9,8 @@ Static_friction,14
 Rolling_resistance,0.264
 Air_resistance,0.00191
 Train_mass,200
-MC_mass,42.5
-TC_mass,38.9
+Mc_mass,42.5
+Tc_mass,38.9
 Starting_resistance,49
 Inertia_mass_m,0.1
 Inertia_mass_t,0.05
