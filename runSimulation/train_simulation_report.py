@@ -2,6 +2,8 @@
 # coding: utf-8
 
 import pandas as pd
+import matplotlib.pyplot as plt
+
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image
 
@@ -84,5 +86,14 @@ class TrainSimulationReport:
    
         # Create DataFrame
         return pd.DataFrame(data)
-    
+
+    def generate_plot(self):
+        plt.figure(figsize=(12, 6))
+        plt.plot(self.df_speed['Time'], self.df_speed['Speed'], color='blue', linewidth=1.5)
+        plt.title('Speed vs Time')
+        plt.xlabel('Time (min)')
+        plt.ylabel('Speed (Km/hr)')
+        plt.grid(True, linestyle='--', alpha=0.5)
+        plt.savefig(self.plot_path)
+        return
  
